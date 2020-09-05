@@ -35,7 +35,7 @@ const sendMessage = async (form) => {
         },
     };
     try {
-        const res = await axios.post('http://localhost:5000/email', form, config);
+        const res = await axios.post('https://abdraqeeb.herokuapp.com/email', form, config);
         const msg = res.data.msg;
         Snackbar.show({text: msg});
         Form.clearFields();
