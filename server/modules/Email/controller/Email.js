@@ -36,7 +36,7 @@ class Email {
             console.log(" [x] Sent %s", qm);
 
             return res.status(200).json({
-                msg: 'Thanks for reaching out. Your message was successfully sent!'
+                msg: 'Thanks for reaching out!'
             })
         } catch (e) {
             console.log(e.stack);
