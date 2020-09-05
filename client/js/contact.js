@@ -35,7 +35,7 @@ const sendMessage = async (form) => {
         },
     };
     try {
-        const res = await axios.post('https://abdraqeeb.herokuapp.com/email', form, config);
+        const res = await axios.post('/email', form, config);
         const msg = res.data.msg;
         Snackbar.show({text: msg});
         Form.clearFields();
@@ -43,5 +43,6 @@ const sendMessage = async (form) => {
         console.log(err.response.data);
         const data = err.response.data;
         Snackbar.show({ text: data });
+        Form.clearFields();
     }
 };
