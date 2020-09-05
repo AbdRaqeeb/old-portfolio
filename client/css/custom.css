@@ -1,0 +1,5 @@
+@media screen and (max-width:767px) {
+    .my_text {
+        font-size: 12px !important;
+    }
+}

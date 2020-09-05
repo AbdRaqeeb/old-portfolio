@@ -19,6 +19,10 @@ app.use(express.static(path.resolve(__dirname, '../client')));
 // noinspection JSIgnoredPromiseFromCall
 subscriber();
 
+app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, ''))
+);
+
 const PORT = process.env.PORT || 5555;
 
 app.listen(PORT, () => {
