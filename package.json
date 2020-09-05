@@ -17,7 +17,8 @@
   "keywords": [
     "nodemailer",
     "amqplib",
-    "axios"
+    "axios",
+    "portfolio"
   ],
   "author": "Ajao AbdRaqeeb",
   "license": "ISC",
