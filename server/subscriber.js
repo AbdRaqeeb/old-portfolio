@@ -1,21 +1,19 @@
 import 'dotenv/config';
 import nodemailer from 'nodemailer';
 import amqplib from 'amqplib';
+import smtpTransport from 'nodemailer-smtp-transport';
 
 // Setup nodemailer transport
-const transport = nodemailer.createTransport({
-    host: process.env.SMTP_ENDPOINT,
-    port: 587,
-    secure: false,
+const transport = nodemailer.createTransport(smtpTransport({
+    service: 'gmail',
+    host: 'smtp.gmail.com',
     auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS
-    },
-    tls: {
-        // do not fail on invalid certs
-        rejectUnauthorized: false
+        user: process.env.USER,
+        pass: process.env.PASS
     }
-});
+}));
+
+
 
 const subscriber = async () => {
     try {
@@ -45,10 +43,6 @@ const subscriber = async () => {
 
             const {name, email, subject, message} = qm;
 
-            // The message tags to apply to the email.
-            const tag0 = "key0=value0";
-            const tag1 = "key1=value1";
-
             const mailOption = {
                 from: process.env.USER,
                 to: process.env.RECEIVER,
@@ -62,11 +56,6 @@ const subscriber = async () => {
                             <p><strong>Message: </strong>${message}</p>
                         </body>                    
                     </html>`,
-                // Custom headers for message tags.
-                headers: {
-                    'X-SES-MESSAGE-TAGS': tag0,
-                    'X-SES-MESSAGE-TAGS': tag1
-                }
             };
 
             // Send the message using the previously set up Nodemailer transport

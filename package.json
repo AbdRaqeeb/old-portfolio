@@ -30,7 +30,8 @@
     "amqplib": "^0.6.0",
     "express": "^4.17.1",
     "joi": "^17.2.1",
-    "nodemailer": "^6.4.11"
+    "nodemailer": "^6.4.11",
+    "nodemailer-smtp-transport": "^2.7.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
