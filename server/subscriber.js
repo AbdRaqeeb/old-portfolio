@@ -5,8 +5,8 @@ import amqplib from 'amqplib';
 // Setup nodemailer transport
 const transport = nodemailer.createTransport({
     host: process.env.SMTP_ENDPOINT,
-    port: 465,
-    secure: true,
+    port: 587,
+    secure: false,
     auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS
